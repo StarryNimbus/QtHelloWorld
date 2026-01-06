@@ -1,10 +1,14 @@
 #include "MainWindow.h"
+#include <QDebug>
 #include <QLabel>
 #include <QMenuBar>
 #include <QStatusBar>
 #include <QVBoxLayout>
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
+MainWindow::MainWindow(bool isDarkMode, QWidget *parent)
+    : QMainWindow(parent), m_isDarkMode(isDarkMode) {
+  qDebug() << "Dark Mode: " << isDarkMode;
+
   setWindowTitle("QtHelloWorld");
   setGeometry(0, 0, 800, 800);
 
@@ -17,13 +21,27 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
   menuBar->setNativeMenuBar(false);
   setMenuBar(menuBar);
 
+  const QString textColor = m_isDarkMode ? "white" : "black";
+
   // Example "Hello World" label
   QLabel *label = new QLabel("Hello World!", this);
   label->setAlignment(Qt::AlignCenter);
+  label->setStyleSheet(QString("QLabel {"
+                               "  font-size: 28px;"
+                               "  font-weight: bold;"
+                               "  color: %1;"
+                               "}")
+                           .arg(textColor));
 
   // Example "Hello World" sublabel
   QLabel *subLabel = new QLabel("Est. 2026", this);
   subLabel->setAlignment(Qt::AlignCenter);
+  subLabel->setStyleSheet(QString("QLabel {"
+                                  "  font-size: 11px;"
+                                  "  font-weight: normal;"
+                                  "  color: %1;"
+                                  "}")
+                              .arg(textColor));
 
   // Example "Hello World" image
   QLabel *image = new QLabel(this);
