@@ -19,16 +19,16 @@ MainWindow::MainWindow(bool isDarkMode, QWidget *parent)
   QWidget *centralWidget = new QWidget(this);
   setCentralWidget(centralWidget);
 
-  QLabel *label = CreateTitle();
-  QLabel *subLabel = CreateSubtitle();
+  QLabel *title = CreateTitle();
+  QLabel *subtitle = CreateSubtitle();
   QLabel *image = CreateCenterImage();
 
   QVBoxLayout *verticalLayout = new QVBoxLayout(centralWidget);
   verticalLayout->setAlignment(Qt::AlignCenter);
   verticalLayout->addStretch();
-  verticalLayout->addWidget(label);
+  verticalLayout->addWidget(title);
   verticalLayout->addWidget(image);
-  verticalLayout->addWidget(subLabel);
+  verticalLayout->addWidget(subtitle);
   verticalLayout->addStretch();
 
   // Bottom of app
