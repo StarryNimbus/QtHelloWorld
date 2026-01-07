@@ -1,4 +1,5 @@
 #include "MainWindow.h"
+#include "MainWindowQml.h"
 #include <QApplication>
 #include <QColor>
 #include <QPalette>
@@ -17,8 +18,27 @@ bool isDarkMode(QApplication &app) {
 int main(int argc, char *argv[]) {
   QApplication app(argc, argv);
 
-  MainWindow mainWindow(isDarkMode(app));
-  mainWindow.show();
+  bool darkMode = isDarkMode(app) ? true : false;
+  qDebug() << "Dark Mode: " << darkMode;
+
+  MainWindow mainWindow(darkMode);
+  MainWindowQml mainWindowQml(darkMode);
+
+  if (argc > 1) {
+    QString arg = QString(argv[1]).toLower();
+    if (arg == "qml") {
+      mainWindowQml.show();
+    } else if (arg == "qwidget") {
+      mainWindow.show();
+    } else {
+      qWarning("Unknown argument: %s. Falling back to QWidgets",
+               arg.toUtf8().constData());
+      mainWindow.show();
+    }
+  } else {
+    qWarning("No argument passed in. Falling back to QWidgets");
+    mainWindow.show();
+  }
 
   return app.exec();
 }

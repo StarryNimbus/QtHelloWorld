@@ -9,13 +9,15 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC OFF) # currently not using .ui files
 set(CMAKE_AUTORCC ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets Gui)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick Widgets)
 
 add_executable(QtHelloWorld
     resources.qrc
     main.cpp
     MainWindow.cpp
     MainWindow.h
+    MainWindowQml.cpp
+    MainWindowQml.h
 )
 
-target_link_libraries(QtHelloWorld PRIVATE Qt6::Widgets Qt6::Gui)
+target_link_libraries(QtHelloWorld PRIVATE Qt6::Core Qt6::Gui Qt6::Quick Qt6::Widgets)

@@ -1,5 +1,4 @@
 #include "MainWindow.h"
-#include <QDebug>
 #include <QMenuBar>
 #include <QStatusBar>
 #include <QVBoxLayout>
@@ -7,8 +6,6 @@
 MainWindow::MainWindow(bool isDarkMode, QWidget *parent)
     : QMainWindow(parent), m_isDarkMode(isDarkMode),
       m_textColor(m_isDarkMode ? "white" : "black") {
-  qDebug() << "Dark Mode: " << isDarkMode;
-
   setWindowTitle("QtHelloWorld");
   setGeometry(0, 0, 800, 800);
 

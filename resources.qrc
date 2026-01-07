@@ -1,5 +1,9 @@
 <RCC version="1.0">
   <qresource prefix="/">
+    <file>Qml/Main.qml</file>
+  </qresource>
+
+  <qresource prefix="/">
     <file>images/globe.png</file>
   </qresource>
 </RCC>
