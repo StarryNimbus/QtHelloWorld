@@ -5,7 +5,8 @@
 
 MainWindow::MainWindow(bool isDarkMode, QWidget *parent)
     : QMainWindow(parent), m_isDarkMode(isDarkMode),
-      m_textColor(m_isDarkMode ? "white" : "black") {
+      m_textColor(m_isDarkMode ? "white" : "black"),
+      m_titleText(m_isDarkMode ? "Good Night World" : "Hello World") {
   setWindowTitle("QtHelloWorld");
   setGeometry(0, 0, 800, 800);
 
@@ -48,7 +49,7 @@ QMenuBar *MainWindow::CreateMenuBar() {
 }
 
 QLabel *MainWindow::CreateTitle() {
-  QLabel *title = new QLabel("Hello World!", this);
+  QLabel *title = new QLabel(m_titleText, this);
   title->setAlignment(Qt::AlignCenter);
   title->setStyleSheet(QString("QLabel {"
                                "  font-size: 28px;"

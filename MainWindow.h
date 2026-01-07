@@ -19,6 +19,7 @@ private:
 
   bool m_isDarkMode;
   QString m_textColor; // based on m_isDarkMode
+  QString m_titleText;
 };
 
 #endif // MAINWINDOW_H

@@ -6,7 +6,7 @@ Rectangle {
     id: root
     height: 800
     width: 800
-    color: "black" // dark mode is "#3D3D3D"
+    color: isDarkMode ? "#3D3D3D" : "#F5F5F7"
 
     ColumnLayout {
         id: verticalLayout
@@ -20,10 +20,12 @@ Rectangle {
         Label {
             id: title
             Layout.alignment: Qt.AlignCenter
-            text: "Hello World!"
+            text: {
+                return isDarkMode ? "Good Night World" : "Hello World"
+            }
             font.pixelSize: 28
             font.weight: Font.ExtraBold
-            color: "white"
+            color: root.getTextColor()
         }
 
         Image {
@@ -41,12 +43,16 @@ Rectangle {
             text: "Est. 2026"
             font.pixelSize: 11
             font.weight: Font.Normal
-            color: "white"
+            color: root.getTextColor()
         }
 
         Item {
             id: bottomFiller
             Layout.fillHeight: true
         }
+    }
+
+    function getTextColor() {
+        return isDarkMode ? "white" : "black"
     }
 }

@@ -1,10 +1,15 @@
 #include "MainWindowQml.h"
+#include <QQmlContext>
 #include <QQmlEngine>
 #include <Qt>
 
 MainWindowQml::MainWindowQml(bool isDarkMode)
     : QObject(nullptr), m_view(nullptr), m_isDarkMode(isDarkMode) {
   m_view = Build();
+
+  // Context properties must be set before setSource()
+  m_view->rootContext()->setContextProperty("isDarkMode", m_isDarkMode);
+
   m_view->setSource(QUrl("qrc:///Qml/Main.qml"));
   m_view->setGeometry(0, 0, 800, 800);
 }
