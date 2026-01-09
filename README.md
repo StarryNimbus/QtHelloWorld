@@ -60,8 +60,8 @@ Tested with:
 
 ```bash
 # From the project root directory, run:
-cmake -S . -B build
-cmake --build build
+cmake -S . -B build -G "Ninja"
+ninja -C build
 ```
 
 ## Additional Notes
