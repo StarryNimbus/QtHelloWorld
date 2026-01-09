@@ -1,43 +1,68 @@
 # QtHelloWorld
-Simple QT app to print "Hello World".
+A minimal **Qt 6 “Hello World” application** created as a clean, public starting point for my portfolio.
 
+This project is intentionally simple. Its goal is not to demonstrate advanced features, but to show a correct, modern Qt setup using **CMake**, **Qt 6**, and both **QWidget** and **QML** frontends.
 
-## To build:
-1. cmake -S . -B build
-2. cmake --build build
+---
 
-## To run:
-1. cd build/bin
-2. Run the built executable from the build directory and choose the UI backend:
+## What this project demonstrates
 
-```
-./QtHelloWorld qml
-or
-./QtHelloWorld qwidget
-```
+- Modern **Qt 6 + CMake** project structure
+- Ability to build and run a Qt application from source
+- Support for **both QWidget and QML UIs**
+- Proper use of resources (icons, images)
+- Clean, minimal code intended to be easy to read and extend
 
-The first starts the QML-based UI; the second starts the QWidget-based UI. If CMake put the binary in a subdirectory (for example build/bin), run the executable from that location.
+This repository serves as a **baseline reference project**, not a feature showcase.
+
+---
+
+## Technologies used
+
+- C++17
+- CMake
+- Qt 6
+    - Qt Widgets
+    - Qt Quick / QML
+    - Qt Resource System (QRC)
+
+---
 
 ## Screenshots
-<figure style="text-align: center;">
-    <img src="screenshots/qwidgetLight.png" alt="QtHelloWorld QWidget Light Mode">
-    <figcaption>QWidget — Light Mode</figcaption>
-</figure>
 
-<figure style="text-align: center;">
-    <img src="screenshots/qwidgetDark.png" alt="QtHelloWorld QWidget Dark Mode">
-    <figcaption>QWidget — Dark Mode</figcaption>
-</figure>
+### QWidget (Light Mode)
+![QWidget Light](screenshots/qwidgetLight.png)
 
-<figure style="text-align: center;">
-    <img src="screenshots/qmlLight.png" alt="QtHelloWorld QML Light Mode">
-    <figcaption>QML — Light Mode</figcaption>
-</figure>
+### QWidget (Dark Mode)
+![QWidget Dark](screenshots/qwidgetDark.png)
 
-<figure style="text-align: center;">
-    <img src="screenshots/qmlDark.png" alt="QtHelloWorld QML Dark Mode">
-    <figcaption>QML — Dark Mode</figcaption>
-</figure>
+### Qml (Light Mode)
+![QWidget Light](screenshots/qmlLight.png)
+
+### Qml (Dark Mode)
+![QWidget Dark](screenshots/qmlDark.png)
+---
+
+## Build requirements
+
+- **Qt 6.x**
+- **CMake 3.16+**
+- A C++17-compatible compiler
+
+Tested with:
+- macOS
+- Qt 6.x
+- Apple Clang
+
+---
+
+## Building the project
+
+```bash
+# From the project root directory, run:
+cmake -S . -B build
+cmake --build build
+```
 
 ## Additional Notes
 ### Including MainWindow.h when registing files with target
